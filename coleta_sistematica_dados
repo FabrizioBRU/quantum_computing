@@ -1,0 +1,74 @@
+# 📥 Coleta Sistemática dos Dados
+
+A coleta sistemática dos dados foi conduzida no mês de **junho de 2025**, com o objetivo de construir séries temporais longitudinais para os três vetores antecedentes definidos no modelo conceitual deste estudo:
+
+- **Interesse Público**
+- **Inovação Formal (PI)**
+- **Produção Científica**
+
+A operacionalização da coleta seguiu os procedimentos descritos no Capítulo 3 do Trabalho Aplicado, com adaptações específicas para cada base de dados.
+
+---
+
+## 🔹 Interesse Público
+
+- **Fonte**: Google Trends  
+- **Termo de busca**: `"Quantum Computing"`  
+- **Cobertura geográfica**: Global  
+- **Categoria**: Todas as categorias  
+- **Tipo de pesquisa**: Pesquisa na Web  
+- **Período analisado**: 01/01/2015 a 31/12/2024  
+- **Frequência**: Semanal  
+- **Coleta realizada em**: Junho/2025
+
+A série expressa um **índice relativo de popularidade de busca (0–100)**, onde 100 representa o pico de interesse. Foram realizadas **rodadas replicadas** para reduzir viés amostral, conforme recomendado por Rivera (2016) e Fenga (2020).
+
+---
+
+## 🔹 Inovação Formal (Patentes)
+
+- **Fonte**: Google Patents  
+- **Família semântica de busca** (com base em Cheng, 2012; Cockburn et al., 2016):
+
+("quantum computing") OR ("quantum computer") OR ("quantum computers") OR
+("quantum computational") OR ("quantum processor") OR ("quantum processors") OR
+("quantum algorithm") OR ("quantum algorithms") OR ("quantum information processing")
+
+
+- **Campo de busca**: Full documents  
+- **Status**: Apenas patentes concedidas (`status:GRANT`)  
+- **Tipo**: Apenas `PATENT` (exclui `DESIGN`)  
+- **Período analisado**: 01/01/2015 a 31/12/2024  
+- **Frequência**: Anual  
+- **Coleta realizada em**: Junho/2025
+
+A busca considerou o número anual de patentes publicadas e resultou em uma série temporal anual, posteriormente normalizada.
+
+---
+
+## 🔹 Produção Científica
+
+- **Fonte**: Web of Science (WoS) – Core Collection  
+- **Expressão de busca**: `"Quantum Computing"`  
+- **Campo**: Topic (inclui título, resumo, Author Keywords e Keywords Plus)  
+- **Tipos de documentos incluídos**: `Article`, `Review Article`  
+- **Tipos excluídos**: `Proceedings Paper`, `Editorial Material`, `Meeting Abstract`, `Book Chapter`, etc.  
+- **Período analisado**: 01/01/2015 a 31/12/2024  
+- **Frequência**: Anual  
+- **Coleta realizada em**: Junho/2025
+
+A exportação dos dados foi feita manualmente, com **capturas de tela** dos totais anuais, garantindo **transparência e rastreabilidade**.
+
+---
+
+## 📊 Consolidação das Séries
+
+As três séries — Interesse Público, Inovação Formal e Produção Científica — foram submetidas, na sequência, aos procedimentos de:
+
+- Limpeza de dados
+- Normalização Min-Max
+- Integração para análises temporais comparadas
+
+---
+
+📁 *Este arquivo faz parte da pasta `/coleta_sistematica_dados` do repositório [quantum_computing](https://github.com/FabrizioBRU/quantum_computing).*  
