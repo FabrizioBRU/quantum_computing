@@ -41,8 +41,8 @@ Para reproduzir as análises:
 Os dados foram obtidos de três fontes secundárias confiáveis:
 
 - **Interesse Público:** índice anual do Google Trends para o termo “Quantum Computing” (2015–2024).
-- **Inovação Formal:** contagem de patentes extraídas da base Lens.org com filtros temáticos.
-- **Produção Científica:** artigos publicados extraídos via Dimensions.ai com filtros por palavra-chave e área.
+- **Inovação Formal:** contagem de patentes extraídas da base do Google Trends.
+- **Produção Científica:** artigos publicados extraídos da WoS - Web of Sciense com filtros por palavra-chave e área.
 
 ### 🧹 Etapas de Limpeza e Padronização
 1. Tratamento de valores ausentes (NA) por imputação linear.
