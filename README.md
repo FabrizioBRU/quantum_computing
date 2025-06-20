@@ -35,16 +35,61 @@ Para reproduzir as análises:
 2. Execute o script `01_limpeza_normalizacao.R` para importar e preparar os dados.
 3. Siga com os scripts `02_`, `03_` e `04_` para rodar os modelos e gerar os gráficos.
 
-## 🔹 Apêndice C – Esta Etapa
-Este README corresponde à documentação da Etapa 1:
-- Origem dos dados.
-- Processo de limpeza e padronização.
-- Normalização das séries (Min-Max).
-- Scripts comentados para reprodutibilidade.
+## 🔹 Apêndice C – Etapa 1: Origem, Limpeza e Normalização dos Dados
+
+### 📥 Origem dos Dados
+Os dados foram obtidos de três fontes secundárias confiáveis:
+
+- **Interesse Público:** índice anual do Google Trends para o termo “Quantum Computing” (2015–2024).
+- **Inovação Formal:** contagem de patentes extraídas da base Lens.org com filtros temáticos.
+- **Produção Científica:** artigos publicados extraídos via Dimensions.ai com filtros por palavra-chave e área.
+
+### 🧹 Etapas de Limpeza e Padronização
+1. Tratamento de valores ausentes (NA) por imputação linear.
+2. Harmonização dos nomes das colunas.
+3. Conversão para formato “tidy” (long data).
+4. Inspeção visual por `ggplot2` para detectar outliers.
+
+### 📏 Normalização
+
+Cada vetor foi normalizado individualmente utilizando a técnica **Min-Max Scaling**:
+```r
+normalize <- function(x) {(x - min(x)) / (max(x) - min(x))}
+df$normalizado <- normalize(df$valor_original)
+```
+
+Essa transformação possibilita comparar séries com escalas distintas no mesmo eixo.
+
+### 📄 Script de Referência: `01_limpeza_normalizacao.R`
+
+```r
+# Carregar bibliotecas
+library(tidyverse)
+library(lubridate)
+
+# Importar dados
+interesse <- read.csv("dados/interesse_publico.csv")
+interesse <- interesse %>%
+  mutate(ano = as.integer(ano)) %>%
+  drop_na(valor)
+
+# Normalizar
+normalize <- function(x) {(x - min(x)) / (max(x) - min(x))}
+interesse$valor_norm <- normalize(interesse$valor)
+
+# Exportar
+write.csv(interesse, "dados/interesse_publico_normalizado.csv", row.names = FALSE)
+```
+
+---
 
 ## ✉️ Contato
 Fabrizio Bruzetti  
 Email: fbruzetti@gmail.com  
+LinkedIn: [linkedin.com/in/fbruzetti](https://linkedin.com/in/fbruzetti)
+
+---
+© 2025 - Mestrado FGV EAESP | Todos os direitos reservados.
 LinkedIn: [linkedin.com/in/fbruzetti](https://linkedin.com/in/fbruzetti)
 
 ---
