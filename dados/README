@@ -1,1 +1,25 @@
-Criando pasta dados
+# 📁 Dados – Séries Temporais dos Vetores Antecedentes
+
+Esta pasta contém os arquivos de dados utilizados na análise dos três vetores antecedentes à adoção da Computação Quântica: Interesse Público, Inovação Formal (PI) e Produção Científica.
+
+## Estrutura de Subpastas
+
+- **`brutos/`**: arquivos originais coletados diretamente das plataformas (Google Trends, Google Patents, Web of Science).
+- **`limpos/`**: arquivos com dados tratados (remoção de inconsistências, padronização de datas e formatos).
+- **`normalizados/`**: séries temporais transformadas pela normalização Min-Max para permitir comparação entre vetores.
+
+## Nomes dos Arquivos
+
+Cada vetor possui três versões:
+
+- `interesse_publico_[bruto|limpo|norm].csv`
+- `patentes_series_[bruto|limpo|norm].csv`
+- `producao_cientifica_[bruto|limpo|norm].csv`
+
+## Observações
+
+- Os dados foram coletados em junho de 2025.
+- As transformações foram feitas com scripts em R disponíveis na pasta `scripts/`.
+- A estrutura facilita a replicação do estudo, permitindo ao leitor trabalhar com as mesmas séries utilizadas na análise.
+
+
